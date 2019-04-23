@@ -1,0 +1,89 @@
+// ==========================================================================
+// Base – Assets
+// ==========================================================================
+
+// Custom Buttons
+.button {
+  cursor: pointer;
+  border: 1px solid #d7d7d7;
+  background-color: #f3f3f3;
+  line-height: normal;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #363636;
+  display: inline-block;
+  transition: all 0.3s;
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    background: #f9f9f9;
+  }
+}
+.button-primary {
+  // Add your styles here
+}
+.button-secondary {
+  // Add your styles here
+}
+
+// Button Styled as Link
+.button-link {
+  color: $base-link-color;
+  text-decoration: underline;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    outline: 0;
+  }
+}
+
+.red-button {
+  font-weight: bold;
+  font-size: 30px;
+  width: 280px;
+  height: 61px;
+  text-align: center;
+  border: 4px solid $red;
+  text-decoration: none;
+  line-height: 46px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: 300ms border ease;
+  span {
+    position: relative;
+    z-index: 2;
+    color: $red;
+    transition: color 300ms ease;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: $red;
+    transform: translate(-100%, 0);
+    transition: transform 300ms ease;
+  }
+  &:hover {
+    transition: 300ms border ease;
+    border: 4px solid #fff;
+    span {
+      color: #fff;
+      transition: color 300ms ease;
+    }
+    &:after {
+      transition: transform 300ms ease;
+      transform: translate(100%, 0);
+    }
+  }
+}
