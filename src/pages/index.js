@@ -1,75 +1,65 @@
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
-import { FaRegClock } from "react-icons/fa"
+import { graphql } from "gatsby"
+import { Link } from "gatsby"
 
-import Layout from "../layouts"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-import { rhythm } from "../utils/typography"
 
-class Home extends Component {
+class SecondPage extends Component {
+
   render() {
-    const data = this.props.data
-
+    const currentPage = this.props.data
+    console.log(currentPage);
     return (
       <Layout>
-        <div css={{ marginBottom: rhythm(1) }}>
-          <h1>Pages</h1>
-          {data.allWordpressPage.edges.map(({ node }) => (
-            <div key={node.slug}>
-              <Link to={node.slug} css={{ textDecoration: `none` }}>
-                <h3>{node.title}</h3>
-              </Link>
-              <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              <span>
-                <FaRegClock
-                  size={14}
-                  css={{ position: `relative`, bottom: 1 }}
-                />
-                {` `}
-                {node.date}
-              </span>
-            </div>
-          ))}
-        </div>
-        <hr />
-        <h1>Posts</h1>
-        {data.allWordpressPost.edges.map(({ node }) => (
-          <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
-            <Link to={node.slug} css={{ textDecoration: `none` }}>
-              <h3>{node.title}</h3>
-            </Link>
-            <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          </div>
-        ))}
-      </Layout>
-    )
+    <SEO title="Page two" />
+    <h1>Hi from the second pageSD</h1>
+    <p>Welcome to page 2</p>
+    <Link to="/">Go back to the homepage</Link>
+  </Layout>
+    );
   }
 }
 
-export default Home
+export default SecondPage
 
 // Set here the ID of the home page.
 export const pageQuery = graphql`
-  query {
-    allWordpressPage {
-      edges {
-        node {
-          id
-          title
-          excerpt
-          slug
-          date(formatString: "MMMM DD, YYYY")
-        }
-      }
-    }
-    allWordpressPost(sort: { fields: [date] }) {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-        }
-      }
+query($frontpage_id: Int = 121) {
+  wordpressPage(wordpress_id: {eq: $frontpage_id}) {
+    title
+    content
+    date(formatString: "MMMM DD, YYYY")
+    acf {
+      page_title_set
+      page_sub_title_set
+      left_button_text
+      left_button_link
+      right_button_text
+      right_button_link
+      big_text
+      big_sub_text_start
+      big_sub_text_end
+      im_steve_title
+      im_steve_description
+      get_in_touch_button_text
+      get_in_touch_button_link
+      some_projects_title
+      some_projects_description
+      get_in_touch_title
+      email_address_set
+      email_description
+      contact_number_set
+      contact_text_section
+      services
     }
   }
+  site {
+    id
+    siteMetadata {
+      title
+    }
+  }
+}
 `
