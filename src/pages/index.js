@@ -2,18 +2,19 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../layouts/index"
 import SEO from "../components/seo"
 
-class SecondPage extends Component {
+class HomePage extends Component {
   render() {
-    const currentPage = this.props.data
-    console.log(currentPage)
+    const currentPage = this.props.data.wordpressPage.acf
+    //console.log(currentPage)
     return (
       <Layout>
         <SEO title="Page two" />
-        <h1>this is the homepage</h1>
+        <h1>this is the homepage its pulls in the home.js in templates</h1>
         <Link to="/">Go back to the homepage</Link>
+        <h2>{currentPage.big_sub_text_end} from live site</h2>
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
@@ -28,13 +29,13 @@ class SecondPage extends Component {
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
-        <div id="about-me">dsakljladskjaksjdsd</div>
+        <div id="about-me">{currentPage.big_sub_text_end}</div>
       </Layout>
     )
   }
 }
 
-export default SecondPage
+export default HomePage
 
 // Set here the ID of the home page.
 export const pageQuery = graphql`

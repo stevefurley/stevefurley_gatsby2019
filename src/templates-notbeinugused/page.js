@@ -4,10 +4,10 @@ import Layout from "../layouts"
 
 import { rhythm } from "../utils/typography"
 
-class Homepage extends Component {
+class OtherPage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage
-    console.log(currentPage);
+    //console.log(currentPage);
     return (
       <Layout>
         <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
@@ -17,7 +17,7 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage
+export default OtherPage
 
 export const pageQuery = graphql`
   query($id: String!) {
@@ -26,28 +26,28 @@ export const pageQuery = graphql`
       content
       date(formatString: "MMMM DD, YYYY")
       acf {
-          page_title_set
-          page_sub_title_set
-          left_button_text
-          left_button_link
-          right_button_text
-          right_button_link
-          big_text
-          big_sub_text_start
-          big_sub_text_end
-          im_steve_title
-          im_steve_description
-          get_in_touch_button_text
-          get_in_touch_button_link
-          some_projects_title
-          some_projects_description
-          get_in_touch_title
-          email_address_set
-          email_description
-          contact_number_set
-          contact_text_section
-          services
-        }
+        page_title_set
+        page_sub_title_set
+        left_button_text
+        left_button_link
+        right_button_text
+        right_button_link
+        big_text
+        big_sub_text_start
+        big_sub_text_end
+        im_steve_title
+        im_steve_description
+        get_in_touch_button_text
+        get_in_touch_button_link
+        some_projects_title
+        some_projects_description
+        get_in_touch_title
+        email_address_set
+        email_description
+        contact_number_set
+        contact_text_section
+        services
+      }
     }
     site {
       id

@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../layouts/index"
 import SEO from "../components/seo"
 
 const Term_conditions = () => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="terms and condistion" />
     <h1>Terms & Conditions</h1>
   </Layout>
 )

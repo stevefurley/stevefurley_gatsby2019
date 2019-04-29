@@ -1,64 +1,61 @@
-import React, { Component } from "react"
+/**
+ * Layout component that queries for data
+ * with Gatsby's StaticQuery component
+ *
+ * See: https://www.gatsbyjs.org/docs/static-query/
+ */
+
+import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
+import MobileMenu from "../components/mobileMenu"
+import Header from "../components/header"
 
-import { rhythm, scale } from "../utils/typography"
+import "../styles/main.scss"
 
-const containerStyle = {
-  maxWidth: 700,
-  margin: `0 auto`,
-  padding: rhythm(3 / 4),
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
 }
 
-class DefaultLayout extends Component {
-  render() {
-    return (
-      <div>
+const Layout = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <MobileMenu />
+        <Header siteTitle={data.site.siteMetadata.title} />
+
         <div
-          css={{
-            background: `rgb(207, 58, 62)`,
-            marginBottom: rhythm(1),
-            padding: `${rhythm(1)} 0px`,
-            "@media screen and (min-width: 500px)": {
-              padding: `${rhythm(2)} 0px`,
-            },
+          style={{
+            margin: `0 auto`,
+            maxWidth: 960,
+            padding: `0px 1.0875rem 1.45rem`,
+            paddingTop: 0,
           }}
         >
-          <div css={containerStyle}>
-            <h1
-              css={{
-                margin: 0,
-                fontSize: scale(1.5).fontSize,
-                lineHeight: 1,
-                "@media screen and (min-width: 500px)": {
-                  fontSize: scale(1.9).fontSize,
-                  lineHeight: 1,
-                },
-              }}
-            >
-              <Link
-                css={{
-                  color: `rgb(224,203,144)`,
-                  ":hover": {
-                    color: `rgb(224,203,144)`,
-                    textDecoration: `none`,
-                  },
-                }}
-                to="/"
-              >
-                Gatsby + Wordpress!!
-              </Link>
-            </h1>
-          </div>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with footer here as main
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
         </div>
-        <div css={containerStyle}>{this.props.children}</div>
-      </div>
-    )
-  }
+      </>
+    )}
+  />
+)
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
-DefaultLayout.propTypes = {
-  children: PropTypes.object.isRequired,
-}
-
-export default DefaultLayout
+export default Layout

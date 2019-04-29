@@ -7,10 +7,10 @@ import { rhythm } from "../utils/typography"
 class PageTemplate extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage
-    console.log(currentPage);
+    //console.log(this)
     return (
       <Layout>
-          this is the homepage
+        this is the homepage asddsads
         <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
         <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
       </Layout>

@@ -8,8 +8,6 @@ const ListLink = props => (
   </li>
 )
 
-const MenuTest = props => <menu to={props.to}>{props.children}</menu>
-
 const Header = ({ siteTitle }) => (
   <header
     style={{
@@ -42,7 +40,7 @@ const Header = ({ siteTitle }) => (
           <ListLink to="/terms-conditions">Terms Conditions</ListLink>
           <ListLink to="/#about-me">Scroll To My Cool Header</ListLink>
         </ul>
-        <MenuTest />
+        <Menu />
       </div>
     </div>
   </header>
