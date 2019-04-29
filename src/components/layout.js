@@ -8,9 +8,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
+import MobileMenu from "./mobileMenu"
 import Header from "./header"
+
 import "../styles/main.scss"
+
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,6 +31,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <MobileMenu />
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -36,7 +43,7 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, Built with footer here as main
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>

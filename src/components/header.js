@@ -1,11 +1,14 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Menu from "./menu"
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
+
+const MenuTest = props => <menu to={props.to}>{props.children}</menu>
 
 const Header = ({ siteTitle }) => (
   <header
@@ -30,14 +33,17 @@ const Header = ({ siteTitle }) => (
           }}
         />
       </h1>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        {siteTitle}
-      </Link>
-      <ul style={{ listStyle: `none`, float: `right` }}>
-        <ListLink to="/">Home</ListLink>
-        <ListLink to="/about/">About</ListLink>
-        <ListLink to="/contact/">Contact</ListLink>
-      </ul>
+      <div>
+        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+          {siteTitle}
+        </Link>
+        <ul style={{ listStyle: `none`, float: `right` }}>
+          <ListLink to="/">Home</ListLink>
+          <ListLink to="/terms-conditions">Terms Conditions</ListLink>
+          <ListLink to="/#about-me">Scroll To My Cool Header</ListLink>
+        </ul>
+        <MenuTest />
+      </div>
     </div>
   </header>
 )

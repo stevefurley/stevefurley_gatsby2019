@@ -7,7 +7,17 @@
 @import "base/_typography";
 @import "base/_forms";
 @import "base/_buttons";
+@import "base/_helpers";
 
 @import "base/_grid";
 // @import "../components/MobileMenu/animations";
 @import "base/_loader";
+
+.menu {
+  font-weight: bolder;
+  color: blue;
+}
+
+.active {
+  color: red;
+}
