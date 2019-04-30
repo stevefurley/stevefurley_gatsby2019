@@ -2,32 +2,23 @@ import React from "react"
 import Link from "gatsby-link"
 
 class Navbar extends React.Component {
-  state = { showMenu: false }
+  //state = { showMenu: false }
 
-  toggleMenu = () => {
-    this.setState({
-      showMenu: !this.state.showMenu,
-    })
-  }
+  // toggleMenu = () => {
+  //   this.setState({
+  //     showMenu: !this.state.showMenu,
+  //   })
+  // }
+
+  // showMenu = true
 
   render() {
-    const menuActive = this.state.showMenu ? "is-active" : ""
-    const burgerActive = this.state.showMenu ? "is-active" : ""
+    const menuActive =
+      this.props.callbackFromMenu == true ? "is-active" : "not-active"
+
+    console.log(menuActive)
     return (
       <nav className="navbar">
-        <div className="navbar-brand">
-          <Link className="navbar-item" to="/" />
-          <div
-            className={`navbar-burger burger ${burgerActive}`}
-            onClick={this.toggleMenu}
-          >
-            <span />
-            this is a icon thing
-            <span />
-            <span />
-          </div>
-        </div>
-
         <div className={`navbar-menu ${menuActive}`}>
           <div className="navbar-start">
             <Link className="navbar-link" to="/" onClick={this.toggleMenu}>
