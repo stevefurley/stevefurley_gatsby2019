@@ -46,10 +46,16 @@ class Layout extends Component {
         `}
         render={data => (
           <>
-            <MobileMenu callbackFromParent={this.toggleShowMenu.bind(this)} />
+            <MobileMenu
+              /* Getting the state from the above show toggle function that
+                is being passed up through componets from menu toggle
+              */
+              callbackFromParent={this.state.showMenu}
+            />
             <Header
               siteTitle={data.site.siteMetadata.title}
-              callbackFromParent={this.state.showMenu}
+              /*pass state down to mobile menu toggle button*/
+              indextoggle={this.toggleShowMenu.bind(this)}
             />
 
             <div

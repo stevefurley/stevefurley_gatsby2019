@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
-import Menu from "./menu"
+import MobileMenuButton from "./mobileMenuButton"
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
@@ -10,6 +10,7 @@ const ListLink = props => (
 
 class Header extends Component {
   render() {
+    //console.log(this)
     const siteTitle = this.props.siteTitle
 
     return (
@@ -47,7 +48,11 @@ class Header extends Component {
               <ListLink to="/terms-conditions">Terms Conditions</ListLink>
               <ListLink to="/#about-me">Scroll To My Cool Header</ListLink>
             </ul>
-            <Menu callbackFromMenu={this.props.callbackFromParent} />
+
+            <MobileMenuButton
+              /*passing down the state to the toggle menu button */
+              indextoggle={this.props.indextoggle}
+            />
           </div>
         </div>
       </header>
