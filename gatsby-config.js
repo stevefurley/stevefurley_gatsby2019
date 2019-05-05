@@ -43,20 +43,12 @@ module.exports = {
         // If useACF is true, then the source plugin will try to import the Wordpress ACF Plugin contents.
         // This feature is untested for sites hosted on Wordpress.com
         useACF: true,
-        includedRoutes: [
-          "**/pages",
-        ],
+        acfOptionPageIds: ["custom_options_page"],
+        includedRoutes: ["**/pages"],
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-glamor`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
     `gatsby-plugin-sass`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

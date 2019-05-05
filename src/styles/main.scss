@@ -1,23 +1,30 @@
-// ==========================================================================
-// Website or App Stylesheet
-// ==========================================================================
+//* this used as global but can't be pull into components styling *//
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+$base-font-color: green !default;
+html {
+  // font-size: 62.5%;
+  box-sizing: border-box;
 
-// Variables and Colors
-@import "styles/variables-colors";
+  //   @media (max-width: 1024px) {
+  //     font-size: 50%;
+  //   }
 
-// Import Base
-@import "base";
-
-// Website / App Styles
-// @import "../components/Header/header";
-// @import "../components/Footer/footer";
-// @import "styles/content";
-// @import "../components/Testimonials/testimonials";
-// @import "../components/ContactSection/contact_section";
-// @import "../components/SkillsUsed/skills_used";
-// @import "../components/Projects/recent_jobs";
-// @import "../components/Projects/projects";
-// @import "../components/AboutMe/about_me";
-
-// Import Base Helpers
-// @import "base/_helpers";
+  //   @media (max-width: 767px) {
+  //     font-size: 42.5%;
+  //   }
+}
+body {
+  @import url("https://fonts.googleapis.com/css?family=Raleway:200,400,700");
+  font-family: "Raleway", sans-serif;
+  color: #333;
+}
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+}

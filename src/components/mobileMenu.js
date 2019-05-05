@@ -2,6 +2,8 @@ import React from "react"
 import Link from "gatsby-link"
 import styled from "styled-components"
 
+import { colors } from "../utils/global"
+
 class Navbar extends React.Component {
   //state = { showMenu: false }
 
@@ -56,7 +58,7 @@ const NavWrapper = styled.div`
       transition: transform 300ms ease;
     }
     &.is-active {
-      background: blue;
+      background: ${colors.tertiaryColor};
     }
     .navbar-link {
       display: block;

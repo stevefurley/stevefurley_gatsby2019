@@ -1,19 +1,22 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
-
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    //console.log(currentPage)
+    console.log(currentPage)
     return (
       <Layout>
         <SEO title="Page two" />
-        <h1>this is the homepage its pulls in the home.js in templates</h1>
+        <div className="wrapper">
+          <h1>this is the homepage its pulls in the home.js in templates</h1>
+        </div>
+
         <Link to="/">Go back to the homepage</Link>
+
         <h2>{currentPage.big_sub_text_end} from live site</h2>
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
