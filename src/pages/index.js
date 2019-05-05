@@ -8,7 +8,7 @@ import Img from "gatsby-image"
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    console.log(currentPage)
+    //console.log(currentPage)
     return (
       <Layout>
         <SEO title="Page two" />
