@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 class HomePage extends Component {
   render() {
@@ -18,6 +19,11 @@ class HomePage extends Component {
         <Link to="/">Go back to the homepage</Link>
 
         <h2>{currentPage.big_sub_text_end} from live site</h2>
+        <Img
+          fluid={
+            currentPage.header_background_image.localFile.childImageSharp.fluid
+          }
+        />
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
         <div className="pad-bottom-60 pad-top-60" />
@@ -48,6 +54,15 @@ export const pageQuery = graphql`
       content
       date(formatString: "MMMM DD, YYYY")
       acf {
+        header_background_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 200) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
         page_title_set
         page_sub_title_set
         left_button_text

@@ -44,13 +44,20 @@ module.exports = {
         // This feature is untested for sites hosted on Wordpress.com
         useACF: true,
         acfOptionPageIds: ["custom_options_page"],
-        // includedRoutes: ["**/pages", "**/media"],
-        includedRoutes: ["**/pages"],
+        includedRoutes: ["**/pages", "**/media"],
+        // includedRoutes: ["**/pages"],
       },
     },
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+      },
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

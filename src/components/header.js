@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import MobileMenuButton from "./mobileMenuButton"
 import styled from "styled-components"
-import HeaderLogo from "../components/logo"
+//import HeaderLogo from "../components/logo"
 const ListLink = props => (
   <li>
     <Link to={props.to}>{props.children}</Link>
@@ -18,7 +18,6 @@ class Header extends Component {
       <HeaderWrapper>
         <header>
           <div className="wrapper">
-            <HeaderLogo />
             <div>
               <ul className="header-menu">
                 <ListLink to="/">Home</ListLink>
