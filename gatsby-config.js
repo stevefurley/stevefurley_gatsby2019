@@ -44,6 +44,7 @@ module.exports = {
         // This feature is untested for sites hosted on Wordpress.com
         useACF: true,
         acfOptionPageIds: ["custom_options_page"],
+        // includedRoutes: ["**/pages", "**/media"],
         includedRoutes: ["**/pages"],
       },
     },
