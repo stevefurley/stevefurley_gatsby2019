@@ -18,7 +18,7 @@ class Navbar extends React.Component {
   render() {
     /* callbackFromParent is passed down from index.js*/
     const menuActive =
-      this.props.callbackFromParent == true ? "is-active" : "not-active"
+      this.props.callbackFromParent === true ? "is-active" : "not-active"
 
     return (
       <NavWrapper>
@@ -44,6 +44,7 @@ class Navbar extends React.Component {
 
 const NavWrapper = styled.div`
   nav {
+    z-index: 90;
     top: 90px;
     background: red;
     position: fixed;

@@ -9,6 +9,8 @@ const colors = {
 }
 
 const GlobalStyle = createGlobalStyle`
+
+
     // @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
 
     // *,
@@ -37,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     // .wrapper {
     //   max-width: 800px;
     //   margin: auto;
-    //   background: red;
+    //   background: blue;
     // }
 `
 
