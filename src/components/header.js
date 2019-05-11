@@ -6,7 +6,7 @@ import styled from "styled-components"
 import HeaderLogo from "../components/logo"
 import BackgroundImage from "../components/images/background_image"
 import Breakpoint, { BreakpointProvider } from "react-socks"
-
+import { Location } from "@reach/router"
 const ListLink = props => (
   <li>
     <Link to={props.to} activeClassName="active">
@@ -18,36 +18,52 @@ const ListLink = props => (
 class Header extends Component {
   render() {
     //const siteTitle = this.props.siteTitle
-    if (window.location.pathname == "/") {
-      console.log("home")
-    } else {
-      console.log("not home")
-    }
+
     return (
       <HeaderWrapper>
-        <header>
-          <BackgroundImage />
-          <div className="wrapper">
-            <HeaderLogo />
-            <div className="menu-section">
-              <Breakpoint medium up>
-                <ul className="header-menu">
-                  <ListLink to="/">Home</ListLink>
-                  <ListLink to="/#about">about</ListLink>
-                  <ListLink to="/#projects">Projects</ListLink>
-                  <ListLink to="/#contact">Contact</ListLink>
-                  {/* <ListLink to="/terms-conditions">Terms Conditions</ListLink> */}
-                </ul>
-              </Breakpoint>
-              <Breakpoint small down>
-                <MobileMenuButton
-                  /*passing down the state to the toggle menu button */
-                  indextoggle={this.props.indextoggle}
-                />
-              </Breakpoint>
-            </div>
-          </div>
-        </header>
+        <Location>
+          {({ location }) => {
+            if (location.pathname == "/") {
+              return <BackgroundImage />
+            } else {
+              return
+            }
+          }}
+        </Location>
+        <Location>
+          {({ location }) => {
+            console.log(location)
+            return (
+              <header>
+                <div className="wrapper">
+                  <HeaderLogo />
+                  <div className="menu-section">
+                    <Breakpoint medium up>
+                      <ul
+                        className="header-menu "
+                        test={location.pathname === "/" ? "home" : "not-home"}
+                      >
+                        <ListLink to="/">Home</ListLink>
+                        <ListLink to="/#about">about</ListLink>
+                        <ListLink to="/#projects">Projects</ListLink>
+                        <ListLink to="/#contact">Contact</ListLink>
+                        <ListLink to="/terms-conditions">
+                          Terms Conditions
+                        </ListLink>
+                      </ul>
+                    </Breakpoint>
+                    <Breakpoint small down>
+                      <MobileMenuButton
+                        /*passing down the state to the toggle menu button */
+                        indextoggle={this.props.indextoggle}
+                      />
+                    </Breakpoint>
+                  </div>
+                </div>
+              </header>
+            )
+          }}
+        </Location>
       </HeaderWrapper>
     )
   }
@@ -56,8 +72,10 @@ class Header extends Component {
 // Set here the ID of the home page.
 
 const HeaderWrapper = styled.div`
+  background: black;
   header {
     position: relative;
+
     .wrapper {
       padding: 30px 0 0 0;
       position: relative;
