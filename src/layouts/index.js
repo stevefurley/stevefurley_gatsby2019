@@ -33,8 +33,9 @@ class Layout extends Component {
 
   render() {
     const children = this.props.children
+    const location = this.props.location
     //const MenuState = this.state.showMenu
-    console.log(this)
+
     return (
       <BreakpointProvider>
         <StaticQuery
@@ -62,7 +63,7 @@ class Layout extends Component {
               />
 
               <div>
-                <main>{children}</main>
+                <main location={location}>{children}</main>
                 <footer>
                   © {new Date().getFullYear()}, Built with footer here as main
                   {` `}

@@ -6,15 +6,23 @@ import styled from "styled-components"
 import HeaderLogo from "../components/logo"
 import BackgroundImage from "../components/images/background_image"
 import Breakpoint, { BreakpointProvider } from "react-socks"
+
 const ListLink = props => (
   <li>
-    <Link to={props.to}>{props.children}</Link>
+    <Link to={props.to} activeClassName="active">
+      {props.children}
+    </Link>
   </li>
 )
 
 class Header extends Component {
   render() {
     //const siteTitle = this.props.siteTitle
+    if (window.location.pathname == "/") {
+      console.log("home")
+    } else {
+      console.log("not home")
+    }
     return (
       <HeaderWrapper>
         <header>

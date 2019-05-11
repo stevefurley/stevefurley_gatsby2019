@@ -8,13 +8,10 @@ import Img from "gatsby-image"
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    //console.log(currentPage)
+    // console.log(this.props.location.pathname)
     return (
       <Layout>
-        <SEO title="Page two" />
-        <div className="wrapper">
-          <h1>this is the homepage its pulls in the home.js in templates</h1>
-        </div>
+        <SEO title="Homepage" />
 
         <Link to="/">Go back to the homepage</Link>
 
