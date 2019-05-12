@@ -32,7 +32,6 @@ class Header extends Component {
         </Location>
         <Location>
           {({ location }) => {
-            console.log(location)
             return (
               <header>
                 <div className="wrapper">
@@ -40,8 +39,12 @@ class Header extends Component {
                   <div className="menu-section">
                     <Breakpoint medium up>
                       <ul
-                        className="header-menu "
-                        test={location.pathname === "/" ? "home" : "not-home"}
+                        className={
+                          "header-menu " +
+                          (location.pathname === "/"
+                            ? "home-menu"
+                            : "not-home-menu")
+                        }
                       >
                         <ListLink to="/">Home</ListLink>
                         <ListLink to="/#about">about</ListLink>
@@ -96,6 +99,7 @@ const HeaderWrapper = styled.div`
       .menu-section {
         display: block;
         text-align: right;
+        align-self: center;
       }
       .header-menu {
         display: inline-block;

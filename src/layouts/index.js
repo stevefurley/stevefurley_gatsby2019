@@ -54,6 +54,7 @@ class Layout extends Component {
                 /* Getting the state from the above show toggle function that
                 is being passed up through componets from menu toggle
               */
+                indextoggle={this.toggleShowMenu.bind(this)}
                 callbackFromParent={this.state.showMenu}
               />
               <Header

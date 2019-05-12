@@ -9,7 +9,7 @@ class MobileMenuButton extends React.Component {
     this.props.indextoggle()
   }
   render() {
-    /* the passes the open close menu all the wau back up to index */
+    /* the passes the open close menu all the way back up to index */
     return (
       <MobileButton
         className="hamburger"
@@ -22,52 +22,60 @@ class MobileMenuButton extends React.Component {
 }
 
 const MobileButton = styled.div`
-  .hamburger {
-    width: 34px;
-    height: 34px;
-    cursor: pointer;
-    padding: 9px 5px 5px 5px;
-    z-index: 10;
+  width: 44px;
+  height: 30px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 10;
+  display: inline-block;
+  margin-left: 20px;
+  position: relative;
+  text-align: right;
+  span {
+    transition-duration: 0s;
+    margin: 0 auto;
+    position: relative;
+    top: 8px;
+    width: 32px;
+    border-radius: 2px;
+    height: 3px;
+    background: white;
     display: block;
-    margin-left: 20px;
-    background: green;
-    span {
-      transition-duration: 0s;
-      margin: 0 auto;
-      position: relative;
-      top: 5px;
+    &:before {
+      transition-property: margin, transform;
+      transition-duration: 0.2s;
+      position: absolute;
+      content: "";
       width: 32px;
-      border-radius: 2px;
+      height: 3px;
+      background: white;
+      left: 0;
+      margin-top: -8px;
+    }
+    &:after {
+      transition-property: margin, transform;
+      transition-duration: 0.2s;
+      position: absolute;
+      content: "";
+      width: 32px;
+      height: 3px;
+      background: white;
+      left: 0;
+      margin-top: 8px;
+    }
+  }
+  &.open {
+    span {
+      background-color: red;
       &:before {
-        transition-property: margin, transform;
-        transition-duration: 0.2s;
-        margin-top: 5px;
-        position: absolute;
-        content: "";
-        width: 32px;
+        margin-top: 0;
+        transform: rotate(45deg);
+        background-color: lightgrey;
       }
       &:after {
-        transition-property: margin, transform;
-        transition-duration: 0.2s;
-        margin-top: 5px;
-        position: absolute;
-        content: "";
-        width: 32px;
-      }
-    }
-    &.open {
-      span {
-        background-color: red;
-        &:before {
-          margin-top: 0;
-          transform: rotate(45deg);
-          background-color: lightgrey;
-        }
-        &:after {
-          margin-top: 0;
-          transform: rotate(-45deg);
-          background-color: lightgrey;
-        }
+        margin-top: 0;
+        transform: rotate(-45deg);
+        background-color: lightgrey;
       }
     }
   }

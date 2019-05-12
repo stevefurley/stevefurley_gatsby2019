@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
-
+import { Link } from "gatsby"
 class HeaderLogo extends Component {
   render() {
     return (
@@ -23,7 +23,7 @@ class HeaderLogo extends Component {
           }
         `}
         render={data => (
-          <React.Fragment>
+          <Link to="/">
             <img
               src={
                 data.allWordpressAcfOptions.edges[0].node.options.header_logo
@@ -32,7 +32,7 @@ class HeaderLogo extends Component {
               className="fluid-img header-logo"
               alt="logo"
             />
-          </React.Fragment>
+          </Link>
         )}
       />
     )
