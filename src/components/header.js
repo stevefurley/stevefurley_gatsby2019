@@ -4,9 +4,11 @@ import PropTypes from "prop-types"
 import MobileMenuButton from "./mobileMenuButton"
 import styled from "styled-components"
 import HeaderLogo from "../components/logo"
+import HeaderText from "./headerComponents/homePageText"
 import BackgroundImage from "../components/images/background_image"
 import Breakpoint, { BreakpointProvider } from "react-socks"
 import { Location } from "@reach/router"
+// import HeaderText from "./headerComponents/homepageText"
 const ListLink = props => (
   <li>
     <Link to={props.to} activeClassName="active">
@@ -15,10 +17,18 @@ const ListLink = props => (
   </li>
 )
 
+function IsHome(props) {
+  if (window.location.pathname === "/") {
+    return <HeaderText />
+  } else {
+    return ""
+  }
+}
+
 class Header extends Component {
   render() {
     //const siteTitle = this.props.siteTitle
-
+    //console.log(this)
     return (
       <HeaderWrapper>
         <Location>
@@ -63,6 +73,7 @@ class Header extends Component {
                     </Breakpoint>
                   </div>
                 </div>
+                <IsHome />,
               </header>
             )
           }}

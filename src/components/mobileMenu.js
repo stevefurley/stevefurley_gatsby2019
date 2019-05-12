@@ -42,7 +42,7 @@ class Navbar extends React.Component {
               to="/"
               onClick={this.updateParent.bind(this)}
             >
-              Home this is the mobile mebu
+              Home
             </Link>
             <Link
               className="navbar-link"
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
               Contact
             </Link>
             <Link to="/terms-conditions" onClick={this.updateParent.bind(this)}>
-              Terms Conditions
+              Terms &#38; Conditions
             </Link>
           </nav>
         </div>
@@ -121,8 +121,9 @@ const NavWrapper = styled.div`
         text-transform: capitalize;
         text-decoration: none;
         color: #fff;
+        opacity: 0;
         text-align: center;
-        transform: translate3d(-13em, 0, 0);
+        transform: translate3d(-8em, 0, 0);
         transition: transform 0s 0.4s;
         &:hover {
           text-decoration: none;
@@ -143,6 +144,7 @@ const NavWrapper = styled.div`
         transition: 1ms ease 600ms;
         a {
           transform: translate3d(0, 0, 0);
+          opacity: 1;
           transition: opacity 0.4s 600ms,
             transform 0.4s 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
         }

@@ -4,38 +4,39 @@ import { Link } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    // console.log(this.props.location.pathname)
+    // console.log(currentPage)
     return (
       <Layout>
-        <SEO title="Homepage" />
+        <HomeContent>
+          <SEO title="Homepage" />
 
-        <Link to="/">Go back to the homepage</Link>
-
-        <h2>{currentPage.big_sub_text_end} from live site</h2>
-        <Img
-          fluid={
-            currentPage.header_background_image.localFile.childImageSharp.fluid
-          }
-        />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div className="pad-bottom-60 pad-top-60" />
-        <div id="about-me">{currentPage.big_sub_text_end}</div>
+          <Img
+            fluid={
+              currentPage.header_background_image.localFile.childImageSharp
+                .fluid
+            }
+          />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div className="pad-bottom-60 pad-top-60" />
+          <div id="about-me">{currentPage.big_sub_text_end}</div>
+        </HomeContent>
       </Layout>
     )
   }
@@ -90,4 +91,8 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const HomeContent = styled.div`
+  position: relative;
 `
