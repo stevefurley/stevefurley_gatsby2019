@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import MobileMenu from "../components/mobileMenu"
 import Header from "../components/header"
-import Breakpoint, { BreakpointProvider } from "react-socks"
+import { BreakpointProvider } from "react-socks"
 
 import "../styles/main.scss"
 

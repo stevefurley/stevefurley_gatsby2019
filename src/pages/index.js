@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
 import styled from "styled-components"
 import Hello from "../components/sections/hello"
 

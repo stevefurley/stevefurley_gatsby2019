@@ -7,7 +7,7 @@ class HelloBlock extends Component {
     // const currentPage = this.props.data.wordpressPage.acf
     // console.log(currentPage)
     return (
-      <HelloSection classNameName="hello-section container">
+      <HelloSection>
         <p className="hello">{this.props.frontmatter.big_text}</p>
         <h3>
           <span className="starttext">

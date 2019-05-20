@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import styled from "styled-components"
+import { Link } from "gatsby"
 // import GlobalStyle from "../../utils/global"
 
 const HomepageHeaderText = ({ className }) => (
@@ -23,6 +24,7 @@ const HomepageHeaderText = ({ className }) => (
       // Set ImageData.
 
       const subtitle = data.wordpressPage.acf.page_sub_title_set
+      console.log(data.wordpressPage.acf.left_button_link)
       return (
         <Textwrapper>
           <div className="headercontainer">
@@ -34,13 +36,19 @@ const HomepageHeaderText = ({ className }) => (
               }}
             />
             <div className="button-container">
-              <a className="redbutton" href="#">
-                <span>left button</span>
-              </a>
+              <Link
+                to={"/" + data.wordpressPage.acf.left_button_link}
+                className="redbutton"
+              >
+                <span>{data.wordpressPage.acf.left_button_text}</span>
+              </Link>
               <span className="or">or</span>
-              <a className="redbutton" href="#">
-                <span>right</span>
-              </a>
+              <Link
+                to={"/" + data.wordpressPage.acf.right_button_link}
+                className="redbutton"
+              >
+                <span>{data.wordpressPage.acf.right_button_text}</span>
+              </Link>
             </div>
           </div>
         </Textwrapper>

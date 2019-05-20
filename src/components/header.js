@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import MobileMenuButton from "./mobileMenuButton"
@@ -6,8 +6,9 @@ import styled from "styled-components"
 import HeaderLogo from "../images/logo.svg"
 import HeaderText from "./headerComponents/homePageText"
 import BackgroundImage from "./headerComponents/background_image"
-import Breakpoint, { BreakpointProvider } from "react-socks"
+import Breakpoint from "react-socks"
 import { Location } from "@reach/router"
+import GlobalStyle from "../styles/global"
 
 // import HeaderText from "./headerComponents/homepageText"
 const ListLink = props => (
@@ -18,78 +19,67 @@ const ListLink = props => (
   </li>
 )
 
-function IsHome(props) {
-  if (window.location.pathname === "/") {
-    return <HeaderText />
-  } else {
-    return ""
-  }
-}
-
-class Header extends Component {
-  render() {
-    //const siteTitle = this.props.siteTitle
-    //console.log(this)
-    return (
-      <HeaderWrapper>
-        <Location>
-          {({ location }) => {
-            if (location.pathname == "/") {
-              return <BackgroundImage />
-            } else {
-              return
-            }
-          }}
-        </Location>
-        <Location>
-          {({ location }) => {
-            return (
-              <header
-                className={
-                  location.pathname === "/" ? "home-header" : "not-home-header"
-                }
-              >
-                <div className="wrapper">
-                  <img
-                    src={HeaderLogo}
-                    alt="Close-button"
-                    className="close-button"
-                  />
-                  <div className="menu-section">
-                    <Breakpoint medium up>
-                      <ul
-                        className={
-                          "header-menu " +
-                          (location.pathname === "/"
-                            ? "home-menu"
-                            : "not-home-menu")
-                        }
-                      >
-                        <ListLink to="/">Home</ListLink>
-                        <ListLink to="/#about">about</ListLink>
-                        <ListLink to="/#projects">Projects</ListLink>
-                        <ListLink to="/#contact">Contact</ListLink>
-                        <ListLink to="/terms-conditions">
-                          Terms Conditions
-                        </ListLink>
-                      </ul>
-                    </Breakpoint>
-                    <Breakpoint small down>
-                      <MobileMenuButton
-                        /*passing down the state to the toggle menu button */
-                        indextoggle={this.props.indextoggle}
-                      />
-                    </Breakpoint>
-                  </div>
+const Header = ({ ...props }) => {
+  console.log(props)
+  return (
+    <HeaderWrapper>
+      <Location>
+        {({ location }) => {
+          if (location.pathname === "/") {
+            return <BackgroundImage />
+          } else {
+            return
+          }
+        }}
+      </Location>
+      <Location>
+        {({ location }) => {
+          return (
+            <header
+              className={
+                location.pathname === "/" ? "home-header" : "not-home-header"
+              }
+            >
+              <div className="wrapper">
+                <img
+                  src={HeaderLogo}
+                  alt="Close-button"
+                  className="close-button"
+                />
+                <div className="menu-section">
+                  <Breakpoint medium up>
+                    <ul
+                      className={
+                        "header-menu " +
+                        (location.pathname === "/"
+                          ? "home-menu"
+                          : "not-home-menu")
+                      }
+                    >
+                      <ListLink to="/">Home</ListLink>
+                      <ListLink to="/#about">about</ListLink>
+                      <ListLink to="/#projects">Projects</ListLink>
+                      <ListLink to="/#contact">Contact</ListLink>
+                      <ListLink to="/terms-conditions">
+                        Terms Conditions
+                      </ListLink>
+                    </ul>
+                  </Breakpoint>
+                  <Breakpoint small down>
+                    <MobileMenuButton
+                      /*passing down the state to the toggle menu button */
+                      indextoggle={props.indextoggle}
+                    />
+                  </Breakpoint>
                 </div>
-                <IsHome />,
-              </header>
-            )
-          }}
-        </Location>
-      </HeaderWrapper>
-    )
-  }
+              </div>
+              {location.pathname === "/" ? <HeaderText /> : ""}
+            </header>
+          )
+        }}
+      </Location>
+    </HeaderWrapper>
+  )
 }
 
 // Set here the ID of the home page.
