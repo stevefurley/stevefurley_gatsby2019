@@ -3,11 +3,12 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import MobileMenuButton from "./mobileMenuButton"
 import styled from "styled-components"
-import HeaderLogo from "../components/logo"
+import HeaderLogo from "../images/logo.svg"
 import HeaderText from "./headerComponents/homePageText"
-import BackgroundImage from "../components/images/background_image"
+import BackgroundImage from "./headerComponents/background_image"
 import Breakpoint, { BreakpointProvider } from "react-socks"
 import { Location } from "@reach/router"
+
 // import HeaderText from "./headerComponents/homepageText"
 const ListLink = props => (
   <li>
@@ -43,9 +44,17 @@ class Header extends Component {
         <Location>
           {({ location }) => {
             return (
-              <header>
+              <header
+                className={
+                  location.pathname === "/" ? "home-header" : "not-home-header"
+                }
+              >
                 <div className="wrapper">
-                  <HeaderLogo />
+                  <img
+                    src={HeaderLogo}
+                    alt="Close-button"
+                    className="close-button"
+                  />
                   <div className="menu-section">
                     <Breakpoint medium up>
                       <ul
@@ -86,10 +95,18 @@ class Header extends Component {
 // Set here the ID of the home page.
 
 const HeaderWrapper = styled.div`
-  background: black;
+  overflow: hidden;
+  position: relative;
   header {
     position: relative;
-
+    &.home-header {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+    &.not-home-header {
+      background: black;
+    }
     .wrapper {
       padding: 30px 0 0 0;
       position: relative;
@@ -97,9 +114,13 @@ const HeaderWrapper = styled.div`
       display: grid;
       grid-template-columns: auto auto;
       grid-gap: 30px;
+      width: 100%;
       .header-logo {
         width: 100%;
         max-width: 40vw;
+        @media (min-width: 740px) {
+          padding-left: 15px;
+        }
         @media (min-width: 1000px) {
           max-width: 30vw;
         }
@@ -111,6 +132,9 @@ const HeaderWrapper = styled.div`
         display: block;
         text-align: right;
         align-self: center;
+        @media (min-width: 740px) {
+          padding-right: 15px;
+        }
       }
       .header-menu {
         display: inline-block;
@@ -122,7 +146,6 @@ const HeaderWrapper = styled.div`
           display: block;
           a {
             display: block;
-            color: #fff;
             text-decoration: none;
             font-size: 22px;
             line-height: 52px;

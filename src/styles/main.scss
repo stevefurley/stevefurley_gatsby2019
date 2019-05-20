@@ -23,6 +23,8 @@ body {
   @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,900");
   font-family: "Titillium Web", sans-serif;
   color: #333;
+  padding: 0;
+  margin: 0;
 }
 .wrapper {
   max-width: calc(100% - 30px);
@@ -32,9 +34,57 @@ body {
   }
 }
 
+$red: #ff4547;
+
 .fluid-img {
   max-width: 100%;
   height: auto;
+}
+
+.redbutton {
+  font-weight: bold;
+  font-size: 30px;
+  width: 280px;
+  height: 61px;
+  color: #fff;
+  text-align: center;
+  border: 4px solid $red;
+  text-decoration: none;
+  line-height: 46px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: 300ms border ease;
+  span {
+    position: relative;
+    z-index: 2;
+    color: $red;
+    transition: color 300ms ease;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: $red;
+    transform: translate(-100%, 0);
+    transition: transform 300ms ease;
+  }
+  &:hover {
+    transition: 300ms border ease;
+    border: 4px solid #fff;
+    span {
+      color: #fff;
+      transition: color 300ms ease;
+    }
+    &:after {
+      transition: transform 300ms ease;
+      transform: translate(100%, 0);
+    }
+  }
 }
 
 // .z-index-1 {

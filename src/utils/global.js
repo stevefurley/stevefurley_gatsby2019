@@ -10,7 +10,7 @@ const colors = {
 
 const GlobalStyle = createGlobalStyle`
 
-
+ 
     // @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,700');
 
     // *,

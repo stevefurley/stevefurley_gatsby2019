@@ -5,22 +5,18 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import Hello from "../components/sections/hello"
 
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    // console.log(currentPage)
+    console.log(currentPage)
     return (
       <Layout>
         <HomeContent>
           <SEO title="Homepage" />
 
-          <Img
-            fluid={
-              currentPage.header_background_image.localFile.childImageSharp
-                .fluid
-            }
-          />
+          <Hello frontmatter={currentPage} />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
