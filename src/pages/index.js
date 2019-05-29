@@ -7,6 +7,7 @@ import styled from "styled-components"
 import Hello from "../components/hello"
 import AboutMe from "../components/aboutMe"
 import Testimonials from "../components/testimonials"
+import RecentProjects from "../components/recentProjects"
 
 class HomePage extends Component {
   render() {
@@ -20,6 +21,7 @@ class HomePage extends Component {
           <Hello frontmatter={currentPage} />
           <AboutMe frontmatter={currentPage} />
           <Testimonials frontmatter={currentPage} />
+          <RecentProjects frontmatter={currentPage} />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
@@ -101,6 +103,21 @@ export const pageQuery = graphql`
             }
             alt_text
           }
+        }
+        some_projects {
+          title
+          link
+          image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 745, maxHeight: 420) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            alt_text
+          }
+          description
         }
         big_sub_text_start
         big_sub_text_end

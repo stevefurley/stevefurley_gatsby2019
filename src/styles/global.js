@@ -53,6 +53,10 @@ body {
   }
 }
 
+.no-padding {
+  padding: 0;
+}
+
 p {
     margin: 0 0 20px;
     font-weight: normal;
@@ -171,6 +175,14 @@ b,
 strong,
 .strong {
   font-weight: 700;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .flex {

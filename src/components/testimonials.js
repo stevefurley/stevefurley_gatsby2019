@@ -46,7 +46,9 @@ class Testimonials extends Component {
 
     return (
       <TestimonialsWrapper>
-        <section id="testimonials">{testimonials}</section>
+        <section id="testimonials" className="wrapper">
+          {testimonials}
+        </section>
       </TestimonialsWrapper>
     )
   }
@@ -80,7 +82,7 @@ const TestimonialsWrapper = styled.div`
       padding-bottom: 30px;
     }
     @media screen and (min-width: ${props => props.theme.responsive.l}) {
-      padding: 80px 15px;
+      padding: 80px 0;
     }
     .testimonial {
       padding: 15px;
