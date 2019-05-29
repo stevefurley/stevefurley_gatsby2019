@@ -43,6 +43,7 @@ body {
   padding: 0;
   margin: 0;
 }
+
 .wrapper {
   max-width: calc(100% - 30px);
   margin: auto;
@@ -110,6 +111,10 @@ p {
       transform: translate(100%, 0);
     }
   }
+}
+
+body {
+  font-family: "Titillium Web", sans-serif;
 }
 
 h1,
