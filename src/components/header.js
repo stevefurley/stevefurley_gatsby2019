@@ -8,8 +8,10 @@ import HeaderText from "./headerComponents/homePageText"
 import BackgroundImage from "./headerComponents/background_image"
 import Breakpoint from "react-socks"
 import { Location } from "@reach/router"
-import GlobalStyle from "../styles/global"
 
+import { setDefaultBreakpoints } from "react-socks"
+
+setDefaultBreakpoints([{ s: 0 }, { m: 740 }, { l: 980 }, { xl: 1140 }])
 // import HeaderText from "./headerComponents/homepageText"
 const ListLink = props => (
   <li>
@@ -20,7 +22,6 @@ const ListLink = props => (
 )
 
 const Header = ({ ...props }) => {
-  console.log(props)
   return (
     <HeaderWrapper>
       <Location>
@@ -41,13 +42,9 @@ const Header = ({ ...props }) => {
               }
             >
               <div className="wrapper">
-                <img
-                  src={HeaderLogo}
-                  alt="Close-button"
-                  className="close-button"
-                />
+                <img src={HeaderLogo} alt="Logo" className="header-logo" />
                 <div className="menu-section">
-                  <Breakpoint medium up>
+                  <Breakpoint m up>
                     <ul
                       className={
                         "header-menu " +
@@ -65,7 +62,7 @@ const Header = ({ ...props }) => {
                       </ListLink>
                     </ul>
                   </Breakpoint>
-                  <Breakpoint small down>
+                  <Breakpoint s only>
                     <MobileMenuButton
                       /*passing down the state to the toggle menu button */
                       indextoggle={props.indextoggle}
@@ -95,21 +92,23 @@ const HeaderWrapper = styled.div`
       flex-direction: column;
     }
     &.not-home-header {
-      background: black;
+      background: ${props => props.theme.colors.black};
     }
     .wrapper {
-      padding: 30px 0 0 0;
+      padding: 30px 15px 0 15px;
       position: relative;
       z-index: 2;
       display: grid;
       grid-template-columns: auto auto;
       grid-gap: 30px;
       width: 100%;
+      max-width: ${props => props.theme.sizes.maxWidth};
       .header-logo {
         width: 100%;
-        max-width: 40vw;
-        @media (min-width: 740px) {
+        max-width: 70vw;
+        @media screen and (min-width: ${props => props.theme.responsive.m}) {
           padding-left: 15px;
+          max-width: 40vw;
         }
         @media (min-width: 1000px) {
           max-width: 30vw;
@@ -122,7 +121,7 @@ const HeaderWrapper = styled.div`
         display: block;
         text-align: right;
         align-self: center;
-        @media (min-width: 740px) {
+        @media screen and (min-width: ${props => props.theme.responsive.m}) {
           padding-right: 15px;
         }
       }

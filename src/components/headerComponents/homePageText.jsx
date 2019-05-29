@@ -24,34 +24,32 @@ const HomepageHeaderText = ({ className }) => (
       // Set ImageData.
 
       const subtitle = data.wordpressPage.acf.page_sub_title_set
-      console.log(data.wordpressPage.acf.left_button_link)
+      // console.log(data.wordpressPage.acf.left_button_link)
       return (
-        <Textwrapper>
-          <div className="headercontainer">
-            <h1>{data.wordpressPage.acf.page_title_set}</h1>
-            <h2
-              className="description"
-              dangerouslySetInnerHTML={{
-                __html: subtitle,
-              }}
-            />
-            <div className="button-container">
-              <Link
-                to={"/" + data.wordpressPage.acf.left_button_link}
-                className="redbutton"
-              >
-                <span>{data.wordpressPage.acf.left_button_text}</span>
-              </Link>
-              <span className="or">or</span>
-              <Link
-                to={"/" + data.wordpressPage.acf.right_button_link}
-                className="redbutton"
-              >
-                <span>{data.wordpressPage.acf.right_button_text}</span>
-              </Link>
-            </div>
+        <Container>
+          <h1>{data.wordpressPage.acf.page_title_set}</h1>
+          <h2
+            className="description"
+            dangerouslySetInnerHTML={{
+              __html: subtitle,
+            }}
+          />
+          <div className="button-container">
+            <Link
+              to={"/" + data.wordpressPage.acf.left_button_link}
+              className="redbutton"
+            >
+              <span>{data.wordpressPage.acf.left_button_text}</span>
+            </Link>
+            <span className="or">or</span>
+            <Link
+              to={"/" + data.wordpressPage.acf.right_button_link}
+              className="redbutton"
+            >
+              <span>{data.wordpressPage.acf.right_button_text}</span>
+            </Link>
           </div>
-        </Textwrapper>
+        </Container>
       )
     }}
   />
@@ -59,7 +57,7 @@ const HomepageHeaderText = ({ className }) => (
 
 export default HomepageHeaderText
 
-const Textwrapper = styled.div`
+const Container = styled.div`
   width: 100%;
   position: relative;
   max-width: 1600px;
@@ -68,6 +66,7 @@ const Textwrapper = styled.div`
   display: flex;
   flex-grow: 1;
   align-items: center;
+  flex-direction: column;
   h1 {
     color: #ffffff;
     text-align: center;

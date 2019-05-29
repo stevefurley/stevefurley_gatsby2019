@@ -23,6 +23,8 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             status
             template
+            yoast_title
+            yoast_description
           }
         }
       }

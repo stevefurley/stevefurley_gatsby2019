@@ -4,18 +4,22 @@ import { graphql } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import styled from "styled-components"
-import Hello from "../components/sections/hello"
+import Hello from "../components/hello"
+import AboutMe from "../components/aboutMe"
+import Testimonials from "../components/testimonials"
 
 class HomePage extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage.acf
-    console.log(currentPage)
+    //console.log(currentPage)
     return (
       <Layout>
         <HomeContent>
-          <SEO title="Homepage" />
+          <SEO title="Homepage" description="this is the description" />
 
           <Hello frontmatter={currentPage} />
+          <AboutMe frontmatter={currentPage} />
+          <Testimonials frontmatter={currentPage} />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
           <div className="pad-bottom-60 pad-top-60" />
@@ -56,6 +60,15 @@ export const pageQuery = graphql`
             }
           }
         }
+        im_steve_photo {
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 900, quality: 100) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
+          }
+        }
         page_title_set
         page_sub_title_set
         left_button_text
@@ -63,6 +76,32 @@ export const pageQuery = graphql`
         right_button_text
         right_button_link
         big_text
+        quotes {
+          name
+          description
+          link
+          company_name
+          logo {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            alt_text
+          }
+          small_image {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            alt_text
+          }
+        }
         big_sub_text_start
         big_sub_text_end
         im_steve_title

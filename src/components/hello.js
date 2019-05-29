@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import HeartIcon from "../../images/heart-icon.svg"
+import HeartIcon from "../images/heart-icon.svg"
 
 class HelloBlock extends Component {
   render() {
@@ -14,7 +14,7 @@ class HelloBlock extends Component {
             {this.props.frontmatter.big_sub_text_start}
           </span>
 
-          <img src={HeartIcon} alt="Close-button" className="close-button" />
+          <img src={HeartIcon} alt="Heart Icon" />
           <span className="endtext">
             {this.props.frontmatter.big_sub_text_end}
           </span>
@@ -28,8 +28,11 @@ class HelloBlock extends Component {
 
 const HelloSection = styled.div`
   margin-bottom: 40px;
+  max-width: ${props => props.theme.sizes.maxWidth};
+  padding: 0 15px;
+  margin: auto;
     display: block;
-     @media (min-width: 740px) {
+    @media screen and (min-width: ${props => props.theme.responsive.m}) {
       margin-bottom: 80px;
     }
     p {
@@ -41,7 +44,7 @@ const HelloSection = styled.div`
       font-weight: bold;
       padding-top: 40px;
       text-align: center;
-        @media (min-width: 740px) {
+        @media screen and (min-width: ${props => props.theme.responsive.m}) {
         font-size: 200px;
         padding-left: 40px;
         line-height: 215px;
