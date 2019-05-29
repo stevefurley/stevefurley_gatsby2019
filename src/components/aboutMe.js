@@ -12,7 +12,7 @@ class AboutMe extends Component {
     return (
       <AboutWrapper>
         <section className="about-me" id="about">
-          <div className="container relative">
+          <div className="container ">
             <article className="leftside">
               <header>
                 <h3>{pagebits.im_steve_title}</h3>
@@ -62,6 +62,7 @@ const AboutWrapper = styled.div`
       padding-bottom: 260px;
     }
     .container {
+      position: relative;
       /* display: flex;
       flex-direction: column;
       padding: 0; */
