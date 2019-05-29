@@ -36,8 +36,9 @@ html {
 .relative {
   position: relative;
 }
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,900");
+
 body {
-  @import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700,900");
   font-family: "Titillium Web", sans-serif;
   color: #333;
   padding: 0;
@@ -113,8 +114,9 @@ p {
   }
 }
 
-body
-a {
+body,
+a,
+p {
   font-family: "Titillium Web", sans-serif;
 }
 
