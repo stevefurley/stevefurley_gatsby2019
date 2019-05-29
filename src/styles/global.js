@@ -113,7 +113,8 @@ p {
   }
 }
 
-body {
+body
+a {
   font-family: "Titillium Web", sans-serif;
 }
 
