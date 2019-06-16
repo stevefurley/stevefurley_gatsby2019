@@ -8,6 +8,7 @@ import Hello from "../components/hello"
 import AboutMe from "../components/aboutMe"
 import Testimonials from "../components/testimonials"
 import RecentProjects from "../components/recentProjects"
+import SkillsUsed from "../components/skillsUsed"
 
 class HomePage extends Component {
   render() {
@@ -22,21 +23,7 @@ class HomePage extends Component {
           <AboutMe frontmatter={currentPage} />
           <Testimonials frontmatter={currentPage} />
           <RecentProjects frontmatter={currentPage} />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div className="pad-bottom-60 pad-top-60" />
-          <div id="about-me">{currentPage.big_sub_text_end}</div>
+          <SkillsUsed frontmatter={currentPage} />
         </HomeContent>
       </Layout>
     )
@@ -110,8 +97,19 @@ export const pageQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 745, maxHeight: 420) {
-                  ...GatsbyImageSharpFluid
+                fluid(fit: CONTAIN) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
                 }
               }
             }
@@ -119,6 +117,21 @@ export const pageQuery = graphql`
           }
           description
         }
+        built_using {
+          link
+          icon {
+            source_url
+            localFile {
+              url
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+        email_description
         big_sub_text_start
         big_sub_text_end
         im_steve_title
