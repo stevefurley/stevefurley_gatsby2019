@@ -119,6 +119,9 @@ export const pageQuery = graphql`
         }
         built_using {
           link
+          image_d {
+            source_url
+          }
           icon {
             source_url
             localFile {

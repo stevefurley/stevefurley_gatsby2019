@@ -5,17 +5,15 @@ import styled from "styled-components"
 class SkillsUsed extends Component {
   render() {
     const json = this.props.frontmatter
-    console.log(json)
+
     const Skills = json.built_using.map((item, i) => (
-      <div
-        className={
-          "pad-bottom-10-m pad-bottom-15 col-12   col-4-l testimonial flex flex-column row-" +
-          i
-        }
-        key={i}
-      >
+      <div className={"  row-" + i} key={i}>
         {item.icon === null ? (
-          "no icon"
+          <a href={item.link} target="_blank" rel="noopener noreferrer" key={i}>
+            <div className="block text-center">
+              <img src={item.image_d.source_url} alt={item.link} />
+            </div>
+          </a>
         ) : (
           <a
             href={item.link}
@@ -26,9 +24,8 @@ class SkillsUsed extends Component {
           >
             <div className="block text-center">
               <img
-                className="img-block"
                 src={item.icon.localFile.childImageSharp.fluid.src}
-                alt="Gatsby Docs are awesome"
+                alt={item.icon.alt}
               />
             </div>
           </a>
@@ -39,8 +36,8 @@ class SkillsUsed extends Component {
     return (
       <SkillsUsedWrapper>
         <section>
-          <div className="container flex-space-around">
-            <div className="col-12 col-5-l leftside ">
+          <div className="wrapper ">
+            <div className="leftside ">
               <h2 className="title">Skills used</h2>
               <div
                 className="description"
@@ -49,7 +46,7 @@ class SkillsUsed extends Component {
                 }}
               />
             </div>
-            <div className='"col-12 col-5-l'>
+            <div className="rightside">
               <div className="flex flex-grow-1 skills-wrapper flex-wrap">
                 {Skills}
               </div>
@@ -70,13 +67,21 @@ const SkillsUsedWrapper = styled.div`
   padding-bottom: 50px;
   padding-top: 50px;
   @media screen and (min-width: ${props => props.theme.responsive.m}) {
-    padding: 80px 15px;
+    padding: 80px 0;
+  }
+  .rightside {
+    width: 100%;
+    @media screen and (min-width: ${props => props.theme.responsive.m}) {
+      width: 38.33333%;
+    }
   }
   .leftside {
     color: #fff;
     padding-bottom: 30px;
+    width: 100%;
     @media screen and (min-width: ${props => props.theme.responsive.m}) {
       padding-bottom: 20px;
+      width: 41.66667%;
     }
     .title {
       font-size: 42px;
@@ -86,13 +91,12 @@ const SkillsUsedWrapper = styled.div`
       margin-bottom: 30px;
     }
   }
-  .container {
+  .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 0;
+    justify-content: space-between;
     @media screen and (min-width: ${props => props.theme.responsive.m}) {
       flex-wrap: wrap;
-      max-width: 1600px;
       flex-direction: row;
       align-items: center;
     }
