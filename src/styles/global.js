@@ -49,7 +49,10 @@ body {
   max-width: calc(100% - 30px);
   margin: auto;
   @media only screen and (min-width: 1140px) {
-    max-width: calc(100% - 180px);
+    max-width: calc(1600px - 50px);
+  }
+  @media only screen and (min-width: 1600px) {
+    max-width: calc(1600px - 120px);
   }
 }
 
