@@ -49,7 +49,9 @@ class AboutMe extends Component {
 
 const AboutWrapper = styled.div`
   background: #eaecf1;
+  position: relative;
   .about-me {
+    padding-top: 90px;
     padding-bottom: 0;
     margin: auto;
     max-width: 1600px;

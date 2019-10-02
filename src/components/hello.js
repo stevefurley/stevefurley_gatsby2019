@@ -28,7 +28,7 @@ class HelloBlock extends Component {
 
 const HelloSection = styled.div`
   
-    background: #eaecf1;
+    background: #2183b2;
   padding: 0 15px 40px 15px;
   margin: auto;
     display: block;
@@ -36,7 +36,7 @@ const HelloSection = styled.div`
       padding: 0 15px 80px 15px;
     }
     p {
-      color: #21b2a6;
+      color: #fff;
       letter-spacing: 0;
       line-height: 65px;
       font-size: 100px;
@@ -60,7 +60,7 @@ const HelloSection = styled.div`
       font-weight: bold;
       font-size: 38px;
       line-height: 52px;
-      color: #2d3047;
+      color: #fff;
       letter-spacing: 0;
       margin-bottom: 50px;
       text-align: center;

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 const Colors = {
-  red: "#89d8bc",
+  red: "#ff4447",
   lightred: "#fb6566",
 }
 // //option 1 lightblue
@@ -121,9 +121,9 @@ p {
   }
   &:hover {
     transition: 300ms border ease;
-    border: 4px solid #fff;
+    border: 4px solid darkgreen(${Colors.red}, 20%);
     span {
-      color: #fff;
+      color: darkgreen(${Colors.red}, 20%);
       transition: color 300ms ease;
     }
     &:after {

@@ -41,9 +41,9 @@ const HomepageHeaderText = ({ className }) => (
               }}
             /> */}
             <h3>
-              I build bespoke websites properly and have beeing doing so for
-              over 9 years whilst working for a number of web agencies and
-              companies in Bath and the surrounding area.
+              I build bespoke websites and have been doing so for over 9 years
+              whilst working for a number of web agencies and companies in Bath
+              and the surrounding area.
             </h3>
             {/* <div className="button-container">
               <Link

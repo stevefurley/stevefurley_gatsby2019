@@ -53,7 +53,7 @@ class Testimonials extends Component {
 export default Testimonials
 
 const TestimonialsWrapper = styled.div`
-  background: #eaecf1;
+  background: #fff;
   .customer-title {
     font-size: 30px;
     line-height: 40px;
@@ -73,10 +73,7 @@ const TestimonialsWrapper = styled.div`
     .wrapper {
       display: flex;
       flex-wrap: wrap;
-      @media screen and (min-width: ${props => props.theme.responsive.l}) {
-      padding-left: 25px;
-      padding-right: 25px;
-    }
+      max-width: 1300px;
     }
     .testimonial {
       padding: 15px 0;
@@ -127,8 +124,8 @@ const TestimonialsWrapper = styled.div`
         .description {
           color: #7D7C7C;
           font-weight: 300;
-          font-size: 18px;
-          line-height: 28px;
+          font-size: 17px;
+          line-height: 26px;
         }
       }
     }
