@@ -175,7 +175,7 @@ class GetInTouch extends Component {
           <svg width="455px" height="394px" viewBox="0 0 455 394">
             <path
               d={shape1}
-              fill-rule="nonzero"
+              fillRule="nonzero"
               fill="#070707"
               transform="translate(-714.000000, -736.000000)"
             >

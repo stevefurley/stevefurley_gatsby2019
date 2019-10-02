@@ -11,7 +11,7 @@ class AboutMe extends Component {
     //console.log(pagebits.im_steve_photo)
     return (
       <AboutWrapper>
-        <section className="about-me" id="about">
+        <section className="about-me wrapper" id="about">
           <div className="container ">
             <article className="leftside">
               <header>
@@ -48,10 +48,11 @@ class AboutMe extends Component {
 // Set here the ID of the home page.
 
 const AboutWrapper = styled.div`
+  background: #eaecf1;
   .about-me {
     padding-bottom: 0;
-    max-width: 1600px;
     margin: auto;
+    max-width: 1600px;
     @media screen and (min-width: ${props => props.theme.responsive.m}) {
       padding-bottom: 0px;
     }
@@ -75,7 +76,8 @@ const AboutWrapper = styled.div`
       }
     }
     .leftside {
-      background: ${props => props.theme.colors.darkblue};
+      /* background: ${props => props.theme.colors.darkblue}; */
+      background: #fff;
       padding: 30px 15px 40px 15px;
       position: relative;
       z-index: 2;
@@ -92,21 +94,21 @@ const AboutWrapper = styled.div`
       @media screen and (min-width: ${props => props.theme.responsive.m}) {
         max-width: calc(70% - 30px);
       }
-      @media only screen and (min-width: 1400px) {
+      @media only screen and (min-width: 1000px) {
         top: 160px;
-        max-width: calc(100% - 670px);
+        max-width: calc(100% - 540px);
       }
       h3 {
         font-weight: bold;
         font-size: 48px;
-        color: #ffffff;
+        color: #2d3047;
         letter-spacing: 0;
         line-height: 72px;
         padding-left: 20px;
       }
       .description {
         font-size: 20px;
-        color: #ffffff;
+        color: #2d3047;
         letter-spacing: 0.5px;
         line-height: 32px;
       }

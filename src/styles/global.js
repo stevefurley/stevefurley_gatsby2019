@@ -58,6 +58,7 @@ a {
   max-width: calc(100% - 30px);
   margin: auto;
   padding: 0 15px;
+  position: relative;
   @media screen and (min-width: ${props => props.theme.responsive.m}) {
     max-width: 1600px;
     padding: 0 50px;
@@ -204,6 +205,10 @@ strong,
 }
 .flex-grow-1 {
 flex-grow: 1;
+}
+
+.green-text {
+  color: #21B2A6;
 }
 
 

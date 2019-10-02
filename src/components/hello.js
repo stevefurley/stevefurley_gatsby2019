@@ -27,36 +27,33 @@ class HelloBlock extends Component {
 // Set here the ID of the home page.
 
 const HelloSection = styled.div`
-  margin-bottom: 40px;
-  max-width: ${props => props.theme.sizes.maxWidth};
-  padding: 0 15px;
+  
+    background: #eaecf1;
+  padding: 0 15px 40px 15px;
   margin: auto;
     display: block;
     @media screen and (min-width: ${props => props.theme.responsive.m}) {
-      margin-bottom: 80px;
+      padding: 0 15px 80px 15px;
     }
     p {
-      color: #eaecf1;
+      color: #21b2a6;
       letter-spacing: 0;
       line-height: 65px;
       font-size: 100px;
       padding-left: 0;
       font-weight: bold;
-      padding-top: 40px;
       text-align: center;
         @media screen and (min-width: ${props => props.theme.responsive.m}) {
         font-size: 200px;
         padding-left: 40px;
         line-height: 215px;
         text-align: left;
-        padding-top: 20px;
       }
      @media (min-width: 1400px) {
         font-size: 13vw;
         line-height: 13vw;
         padding-left: 13vw;
         text-align: left;
-        padding-top: 50px;
       }
     }
     h3 {

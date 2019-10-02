@@ -2,7 +2,7 @@
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
     <title>Icon</title>
     <desc>Created with Sketch.</desc>
-    <g id="Border" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <g id="Border" stroke="none" stroke-width="1" fill="none" fillRule="evenodd" stroke-linecap="round" stroke-linejoin="round">
         <g id="Action,-cancel,-close,-delete,-exit,-remove,-x-icon" transform="translate(-1.000000, -1.000000)" stroke="#FFFFFF" stroke-width="3">
             <path d="M12,12 L21.5,21.5 L12,12 L2.5,21.5 L12,12 Z M12,12 L2.5,2.5 L12,12 L21.5,2.5 L12,12 Z" id="Icon"/>
         </g>
