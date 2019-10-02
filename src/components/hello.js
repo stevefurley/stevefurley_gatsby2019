@@ -65,9 +65,11 @@ const HelloSection = styled.div`
       line-height: 52px;
       color: #2d3047;
       letter-spacing: 0;
+      margin-bottom: 50px;
       text-align: center;
         @media (min-width: 740px) {
         font-size: 48px;
+         margin-bottom: 10px;
         line-height: 60px;
       }
       @media (min-width: 1400px) {

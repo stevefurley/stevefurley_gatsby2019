@@ -43,17 +43,28 @@ body {
   color: #333;
   padding: 0;
   margin: 0;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
 }
+
+a {
+  color: #FF4447;
+  text-decoration: none;
+}
+
 
 .wrapper {
   max-width: calc(100% - 30px);
   margin: auto;
-  @media only screen and (min-width: 1140px) {
-    max-width: calc(1600px - 50px);
+  padding: 0 15px;
+  @media screen and (min-width: ${props => props.theme.responsive.m}) {
+    max-width: 1600px;
+    padding: 0 50px;
   }
-  @media only screen and (min-width: 1600px) {
-    max-width: calc(1600px - 120px);
-  }
+   /* @media screen and (min-width: ${props => props.theme.responsive.l}) {
+    padding: 0 120px;
+  } */
 }
 
 .no-padding {

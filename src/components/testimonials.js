@@ -7,15 +7,9 @@ class Testimonials extends Component {
     const json = this.props.frontmatter
 
     const testimonials = json.quotes.map((item, i) => (
-      <div
-        className={
-          "pad-bottom-10-m pad-bottom-15 col-12   col-4-l testimonial flex flex-column row-" +
-          i
-        }
-        key={i}
-      >
+      <div className={"testimonial row-" + i} key={i}>
         <div className="inner flex-grow-1">
-          <div className="block text-center">
+          <div className="heading">
             {item.logo === null ? (
               "nuaksdjl"
             ) : (
@@ -25,29 +19,31 @@ class Testimonials extends Component {
                 alt="Gatsby Docs are awesome"
               />
             )}
+            <div className="righttext">
+              <h4 className="">{item.name}</h4>
+              <a
+                href={item.link}
+                target="_blank"
+                key={i}
+                rel="noopener noreferrer"
+                className={"custom-links"}
+              >
+                {item.company_name}
+              </a>
+            </div>
           </div>
-          <span className="big-quotes">"</span>
-          <div className="textsection">
-            <h4 className="  pad-top-10 uppercase font-600">{item.name}</h4>
-            <a
-              href={item.link}
-              target="_blank"
-              key={i}
-              rel="noopener noreferrer"
-              className={"custom-links"}
-            >
-              {item.company_name}
-            </a>
-            <div className="description">"{item.description}"</div>
-          </div>
+          <div className="description">"{item.description}"</div>
         </div>
       </div>
     ))
 
     return (
       <TestimonialsWrapper>
-        <section id="testimonials" className="wrapper">
-          {testimonials}
+        <section id="testimonials">
+          <p className="customer-title">
+            Here’s what my lovely customersers had to say
+          </p>
+          <div className="wrapper">{testimonials}</div>
         </section>
       </TestimonialsWrapper>
     )
@@ -58,97 +54,81 @@ export default Testimonials
 
 const TestimonialsWrapper = styled.div`
   background: #eaecf1;
+  .customer-title {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+  }
   #testimonials {
-    padding-top: 30px;
+    padding-top: 40px;
     padding-bottom: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* grid-template-columns: minmax(300px, 500px) minmax(300px, 500px) minmax(
-        300px,
-        500px
-      ); */
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-items: center;
-    grid-template-rows: auto;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;
-    justify-items: center;
-    justify-content: center;
-    padding-left: 15px;
-    padding-right: 15px; */
     @media screen and (min-width: ${props => props.theme.responsive.m}) {
       padding-top: 30px;
       padding-bottom: 30px;
     }
     @media screen and (min-width: ${props => props.theme.responsive.l}) {
-      padding: 80px 0;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      @media screen and (min-width: ${props => props.theme.responsive.l}) {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
     }
     .testimonial {
-      padding: 15px;
+      padding: 15px 0;
       width: 100%;
-      @media screen and (min-width: ${props => props.theme.responsive.l}) {
+      @media screen and (min-width: ${props => props.theme.responsive.m}) {
         display: flex;
+        padding: 15px 15px 30px 15px;
         width: 33%;
-        min-width: 316px;
       }
       .img-block {
+        height: 50px;
+        display: block;
+        width: 50px;
+        flex-grow: 0;
+        flex-shrink: 0;
         border-radius: 100%;
-        margin: auto;
-        max-width: 150px;
-        height: auto;
-        display: inline-block;
       }
       .inner {
         background: #fff;
-        padding: 60px 25px;
+        padding: 30px 30px;
         box-shadow: 0 0 44px 0 rgba(0, 0, 0, 0.17);
-        @media screen and (min-width: ${props => props.theme.responsive.m}) {
+        .heading {
           display: flex;
-          padding: 30px 25px;
           align-items: center;
+          padding-bottom: 15px
         }
-        @media screen and (min-width: ${props => props.theme.responsive.l}) {
-          display: block;
-          padding: 60px 25px;
-          align-items: start;
+        .righttext {
+          padding-left: 20px;
         }
-        .textsection {
-          text-align: center;
-          @media screen and (min-width: ${props => props.theme.responsive.m}) {
-            text-align: left;
-            padding-left: 30px;
-          }
-          @media screen and (min-width: ${props => props.theme.responsive.l}) {
-            text-align: center;
-            padding-left: 0;
-          }
+        h4 {
+          font-size: 24px;
+          line-height: 34px;
+          margin-bottom: 0;
         }
         .custom-links {
           text-decoration: none;
           display: block;
-          font-weight: 900;
-          color: ${props => props.theme.colors.red};
+          font-weight: 100;
+          color: #EF5D4A;
+          /* color: ${props => props.theme.colors.red}; */
           transition: color 300ms ease;
-          padding-bottom: 15px;
-          text-transform: uppercase;
+          font-size: 16px;
           &:hover {
             color: ${props => props.theme.colors.lightred};
             transition: color 300ms ease;
           }
         }
         .description {
-          color: #2e2e2e;
+          color: #7D7C7C;
           font-weight: 300;
-        }
-        .person {
-          border-radius: 100%;
-          background-position: center center;
-          background-size: cover;
-          height: 158px;
-          width: 158px;
-          display: inline - block;
-          margin-bottom: 30px;
+          font-size: 18px;
+          line-height: 28px;
         }
       }
     }

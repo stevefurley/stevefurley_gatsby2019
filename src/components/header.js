@@ -55,7 +55,7 @@ const Header = ({ ...props }) => {
                     >
                       <ListLink to="/">Home</ListLink>
                       <ListLink to="/#about">about</ListLink>
-                      <ListLink to="/#projects">Projects</ListLink>
+                      <ListLink to="/projects">Projects</ListLink>
                       <ListLink to="/#contact">Contact</ListLink>
                       <ListLink to="/terms-conditions">
                         Terms Conditions

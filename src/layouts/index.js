@@ -38,6 +38,7 @@ class Layout extends Component {
   render() {
     const children = this.props.children
     const location = this.props.location
+
     //const MenuState = this.state.showMenu
 
     return (
@@ -76,7 +77,6 @@ class Layout extends Component {
                   <footer>
                     © {new Date().getFullYear()}, Built with footer here as main
                     {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
                   </footer>
                 </div>
               </>
