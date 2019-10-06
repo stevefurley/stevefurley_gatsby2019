@@ -44,8 +44,16 @@ module.exports = {
         // This feature is untested for sites hosted on Wordpress.com
         useACF: true,
         acfOptionPageIds: ["custom_options_page"],
-        includedRoutes: ["**/pages", "**/media"],
+        includedRoutes: ["**/pages", "**/media", "**/menus"],
         // includedRoutes: ["**/pages"],
+        // '/*/*/categories',
+        // '/*/*/posts',
+        // '/*/*/pages',
+        // '/*/*/media',
+        // '/*/*/tags',
+        // '/*/*/taxonomies',
+        // '/*/*/users',
+        // '/*/*/menus'
       },
     },
     `gatsby-plugin-sass`,

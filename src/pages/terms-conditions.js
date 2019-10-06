@@ -3,11 +3,12 @@ import React from "react"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 
-const Term_conditions = () => (
+export default () => (
   <Layout>
-    <SEO title="terms and condistion" />
-    <h1>Terms & Conditions</h1>
+    <h1>Hi! I'm building a fake Gatsby site as part of a tutorial!</h1>
+    <p>
+      What do I like to do? Lots of course but definitely enjoy building
+      websites.
+    </p>
   </Layout>
 )
-
-export default Term_conditions

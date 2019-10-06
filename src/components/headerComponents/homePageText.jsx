@@ -27,12 +27,16 @@ const HomepageHeaderText = ({ className }) => (
       const subtitle = data.wordpressPage.acf.page_sub_title_set
       // console.log(data.wordpressPage.acf.left_button_link)
       return (
-        <Container className="wrapper">
+        <Container className="wrapper-padding">
           <div className="leftside">
             {/* <h1>{data.wordpressPage.acf.page_title_set}</h1> */}
             <h2>Wordpress support in Bath & Bristol</h2>
             <h1>
-              Website developer specialising in <span>Wordpress.</span>
+              Website developer
+              <br />
+              specialising <br />
+              in
+              <span> Wordpress.</span>
             </h1>
             {/* <h3
               className="description"
@@ -41,9 +45,8 @@ const HomepageHeaderText = ({ className }) => (
               }}
             /> */}
             <h3>
-              I build bespoke websites and have been doing so for over 9 years
-              whilst working for a number of web agencies and companies in Bath
-              and the surrounding area.
+              Seeking a web presence for your company?<br />Agency looking to
+              hire a reliable freelancer?
             </h3>
             {/* <div className="button-container">
               <Link
@@ -82,8 +85,15 @@ const Container = styled.div`
   z-index: 3;
   display: flex;
   .leftside {
-    max-width: 800px;
+    max-width: 810px;
     padding-top: 50px;
+    @media screen and (min-width: 1110px) {
+      max-width: 720px;
+      padding-top: 100px;
+    }
+    @media screen and (min-width: 1600px) {
+      max-width: none;
+    }
     h2 {
       font-size: 26px;
       color: #9f9f9f;
@@ -92,6 +102,10 @@ const Container = styled.div`
       font-weight: 100;
       padding-bottom: 15px;
       @media (min-width: 740px) {
+        line-height: 30px;
+        font-size: 20px;
+      }
+      @media (min-width: 1000px) {
         line-height: 37px;
         font-size: 33px;
       }
@@ -105,12 +119,14 @@ const Container = styled.div`
   }
   .rightside {
     position: relative;
-    margin-top: -79px;
-    padding-right: 180px;
     display: flex;
+    text-align: right;
+    justify-content: flex-end;
     flex-grow: 1;
-    align-items: center;
-    max-width: 670px;
+    img {
+      display: inline-block;
+      max-width: 32vw;
+    }
   }
   h1 {
     color: #2b343e;
@@ -120,12 +136,20 @@ const Container = styled.div`
     font-weight: bold;
     margin-bottom: 30px;
     @media (min-width: 740px) {
-      line-height: 5vw;
-      font-size: 5vw;
+      line-height: 6.4vw;
+      font-size: 5.5vw;
     }
-    @media (min-width: 980px) {
-      line-height: 4.2vw;
-      font-size: 4vw;
+    @media (min-width: 1000px) {
+      font-size: 47px;
+      line-height: 57px;
+    }
+    @media (min-width: 1400px) {
+      font-size: calc(60px + 1.7vw);
+      line-height: calc(60px + 1.9vw);
+    }
+    @media (min-width: 1920px) {
+      font-size: calc(80px + 1.7vw);
+      line-height: calc(90px + 1.7vw);
     }
     & span {
       color: #21b2a6;

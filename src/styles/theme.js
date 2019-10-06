@@ -10,6 +10,7 @@ const theme = {
     secondary: "#e9e9e9", // Medium Gray
     tertiary: "#f3f3f3", // Light Gray
     highlight: "#5b8bf7", // Light Blue
+    orange: "#ff4447", // orange
   },
   sizes: {
     maxWidth: "1600px",

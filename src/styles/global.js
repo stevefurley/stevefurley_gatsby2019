@@ -59,13 +59,28 @@ a {
   margin: auto;
   padding: 0 15px;
   position: relative;
-  @media screen and (min-width: ${props => props.theme.responsive.m}) {
-    max-width: 1600px;
+  max-width: 1600px;
+  @media (min-width: 740px) {
+  padding: 0 30px;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.l}) {
     padding: 0 50px;
   }
    /* @media screen and (min-width: ${props => props.theme.responsive.l}) {
     padding: 0 120px;
   } */
+}
+
+.wrapper-padding {
+  margin: auto;
+  padding: 0 15px;
+  position: relative;
+  @media (min-width: 740px) {
+  padding: 0 30px;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.l}) {
+    padding: 0 50px;
+  }
 }
 
 .no-padding {

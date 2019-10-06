@@ -22,13 +22,10 @@ class MobileMenuButton extends React.Component {
 }
 
 const MobileButton = styled.div`
-  width: 44px;
-  height: 30px;
   cursor: pointer;
   padding: 5px;
   z-index: 10;
   display: inline-block;
-  margin-left: 20px;
   position: relative;
   text-align: right;
   span {
@@ -39,7 +36,7 @@ const MobileButton = styled.div`
     width: 32px;
     border-radius: 2px;
     height: 3px;
-    background: white;
+    background: ${props => props.theme.colors.orange};
     display: block;
     &:before {
       transition-property: margin, transform;
@@ -48,7 +45,7 @@ const MobileButton = styled.div`
       content: "";
       width: 32px;
       height: 3px;
-      background: white;
+      background: ${props => props.theme.colors.orange};
       left: 0;
       margin-top: -8px;
     }
@@ -59,14 +56,14 @@ const MobileButton = styled.div`
       content: "";
       width: 32px;
       height: 3px;
-      background: white;
+      background: ${props => props.theme.colors.orange};
       left: 0;
       margin-top: 8px;
     }
   }
   &.open {
     span {
-      background-color: red;
+      background-color: ${props => props.theme.colors.orange};
       &:before {
         margin-top: 0;
         transform: rotate(45deg);
